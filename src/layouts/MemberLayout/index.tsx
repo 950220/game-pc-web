@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.less';
 
-const BasicLayout: React.FC = props => {
+const MemberLayout: React.FC = props => {
   return (
     <div className={styles.normal}>
       {props.children}
@@ -9,4 +9,4 @@ const BasicLayout: React.FC = props => {
   );
 };
 
-export default BasicLayout;
+export default MemberLayout;
