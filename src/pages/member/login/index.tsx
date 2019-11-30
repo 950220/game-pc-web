@@ -1,43 +1,54 @@
 import React from 'react';
-import { Form, Input, Icon, Button } from 'antd'
+import { Form, Input, Icon, Button, message } from 'antd'
 import styles from './index.less'
-
 
 interface HomeProps {
   form: any
 }
 const Login : React.FC<HomeProps> = (props: HomeProps) => {
-  const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = props.form;
+  const { getFieldDecorator } = props.form;
   const login = () => {
-
+    props.form.validateFields((err: any, values: any)=> {
+      if (!err) {
+        if (!values.username) {
+          message.warning('请输入用户名！')
+          return
+        }
+        if (!values.password) {
+          message.warning('请输入密码!')
+          return
+        }
+        let params = {
+          username: values.username,
+          password: values.password,
+          action: 'login'
+        }
+      }
+    })
   }
   return (
     <div className={styles["login"]}>
       <div className={styles["login-form"]}>
         <Form>
           <Form.Item>
-          {getFieldDecorator('username', {
-            rules: [{ required: true, message: '请输入用户名!' }],
-          })(
+          {getFieldDecorator('username')(
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              placeholder="Username"
+              placeholder="用户名"
             />
           )}
           </Form.Item>
           <Form.Item>
-            {getFieldDecorator('password', {
-              rules: [{ required: true, message: '请输入密码!' }],
-            })(
+            {getFieldDecorator('password')(
               <Input
                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 type="password"
-                placeholder="Password"
+                placeholder="密码"
               />
             )}
           </Form.Item>
           <Form.Item>
-            <Button type="primary" size="default" onClick={login} block>登录</Button>
+            <Button type="primary" size="default" onClick={login} block={true}>登录</Button>
           </Form.Item>
         </Form>
       </div>

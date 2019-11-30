@@ -31,7 +31,7 @@ export default {
         },
         dll: false,
         pwa: false,
-        hd: true,
+        hd: false,
         routes: {
           // 路由配置忽略以下文件夹下文件
           exclude: [

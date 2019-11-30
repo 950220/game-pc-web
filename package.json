@@ -34,7 +34,9 @@
     "tslint-react": "^3.6.0",
     "umi": "^2.9.0",
     "umi-plugin-react": "^1.8.0",
-    "umi-types": "^0.3.0"
+    "umi-types": "^0.3.0",
+    "store": "^2.0.12",
+    "es6-promise": "^4.2.8"
   },
   "lint-staged": {
     "*.{ts,tsx}": ["tslint --fix", "git add"],
