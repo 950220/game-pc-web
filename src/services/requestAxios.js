@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { message } from 'antd'
+import { baseUrl } from '../config'
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
@@ -26,7 +27,8 @@ const codeMessage = {
  * @param {Object} params  参数
  * @returns Promise<T>
  */
-export default function request({header, method, url, params}){
+export default function request({ method, url, data, header }){
+	console.log(data)
 	const headers = {
 		Accept: 'application/json',
 		'Content-Type': 'application/json; charset=utf-8',
@@ -36,21 +38,21 @@ export default function request({header, method, url, params}){
 		axios({
 			headers: headers,
 			method,
-			url,
-			data: method === 'POST' || method === 'PUT' ? params : null,
-			params: method === 'GET' || method === 'DELETE' || method === 'PATCH' ? params : null,
+			url: baseUrl + url,
+			data: method === 'POST' || method === 'PUT' ? data : null,
+			params: method === 'GET' || method === 'DELETE' || method === 'PATCH' ? data : null,
 			withCredentials: false
 		})
 			.then((res) => {
 				if (res.status === 200) {
-					resolve(res)
+					resolve(res.data)
 				} else {
 					reject('网络异常．．．．')
 				}
 			}, err => {
 				reject(err)
 				const errCode = err.response.status
-				console.log(codeMessage[errCode])
+				message.warning(codeMessage[errCode])
 			})
 			.catch((err) => {
 				const errInfo = { 'err': err.response }

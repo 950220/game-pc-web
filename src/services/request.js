@@ -52,7 +52,7 @@ function checkStatus(response, params) {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
-export default function request({url, header, method, data, cdn, credentials}) {
+export default function request({url, header, method, data, credentials}) {
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json; charset=utf-8',

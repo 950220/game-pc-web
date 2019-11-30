@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Icon, Button, message } from 'antd'
 import styles from './index.less'
+import { loginIn } from './service'
 
 interface HomeProps {
   form: any
@@ -25,6 +26,12 @@ const Login : React.FC<HomeProps> = (props: HomeProps) => {
           action: 'login'
         }
         setIsLoaning(true)
+        loginIn(params).then((res: any) => {
+          console.log(res)
+        })
+        .catch((err: any) => {
+          console.log(err)
+        })
       }
     })
   }
