@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Icon, Button, message } from 'antd'
 import styles from './index.less'
 
@@ -7,6 +7,7 @@ interface HomeProps {
 }
 const Login : React.FC<HomeProps> = (props: HomeProps) => {
   const { getFieldDecorator } = props.form;
+  const [ isLoading, setIsLoaning ] = useState(false)
   const login = () => {
     props.form.validateFields((err: any, values: any)=> {
       if (!err) {
@@ -23,6 +24,7 @@ const Login : React.FC<HomeProps> = (props: HomeProps) => {
           password: values.password,
           action: 'login'
         }
+        setIsLoaning(true)
       }
     })
   }
@@ -48,7 +50,7 @@ const Login : React.FC<HomeProps> = (props: HomeProps) => {
             )}
           </Form.Item>
           <Form.Item>
-            <Button type="primary" size="default" onClick={login} block={true}>登录</Button>
+            <Button type="primary" size="default" onClick={login} block={true}>{isLoading ? '登录中...' : '登录'}</Button>
           </Form.Item>
         </Form>
       </div>
