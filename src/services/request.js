@@ -1,4 +1,5 @@
 import fetch from 'dva/fetch';
+import qs from 'qs';
 import { message } from 'antd';
 import { baseUrl } from '../config'
 require('es6-promise').polyfill();
@@ -55,7 +56,7 @@ function checkStatus(response, params) {
 export default function request({url, header, method, data, credentials}) {
   const headers = {
     Accept: 'application/json',
-    'Content-Type': 'application/json; charset=utf-8',
+    'Content-Type': 'application/x-www-form-urlencoded',
     ...header
   }
   let options = {
@@ -67,7 +68,7 @@ export default function request({url, header, method, data, credentials}) {
     const query = parseParams(data);
     url = JSON.stringify(data)==="{}" ? url : `${url}?${query}`;
   }else{
-    options.body = JSON.stringify(data)
+    options.body = qs.stringify(data)
   }
   let host = baseUrl + url
   return fetch(host, options)

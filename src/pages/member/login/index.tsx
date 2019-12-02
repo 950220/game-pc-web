@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Input, Icon, Button, message } from 'antd'
 import styles from './index.less'
 import { loginIn } from './service'
+import router from 'umi/router';
+import store from 'store';
 
 interface HomeProps {
   form: any
@@ -26,15 +28,34 @@ const Login : React.FC<HomeProps> = (props: HomeProps) => {
           action: 'login'
         }
         setIsLoaning(true)
-        loginIn(params).then((res: any) => {
-          console.log(res)
+        loginIn(params).then((data: any) => {
+          setIsLoaning(false)
+          if (data.resultCode === 200) {
+            message.success('登录成功!')
+            store.set('username', params.username)
+            router.push({
+              pathname: ''
+            })
+          } else {
+            message.warning(data.msg)
+          }
         })
         .catch((err: any) => {
+          setIsLoaning(false)
           console.log(err)
         })
       }
     })
   }
+
+  useEffect(() => {
+    if (store.get('username')) {
+      router.push({
+        pathname: ''
+      })
+    }
+  })
+
   return (
     <div className={styles["login"]}>
       <div className={styles["login-form"]}>

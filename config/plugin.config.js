@@ -5,7 +5,7 @@ export default config => {
     config.devServer
       .proxy({
         '/api': {
-          target: 'http://39.108.232.210:8080',
+          target: 'http://localhost:8080/game',
           changeOrigin: true,
           pathRewrite: {
             '^/api' : ''

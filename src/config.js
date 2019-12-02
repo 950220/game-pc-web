@@ -1,4 +1,4 @@
-let baseUrl = '/api/'
+let baseUrl = '/api'
 
 export {
   baseUrl

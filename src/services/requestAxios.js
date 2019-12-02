@@ -1,4 +1,5 @@
 import axios from 'axios'
+import qs from 'qs'
 import { message } from 'antd'
 import { baseUrl } from '../config'
 const codeMessage = {
@@ -28,10 +29,8 @@ const codeMessage = {
  * @returns Promise<T>
  */
 export default function request({ method, url, data, header }){
-	console.log(data)
 	const headers = {
-		Accept: 'application/json',
-		'Content-Type': 'application/json; charset=utf-8',
+		'Content-Type': 'application/x-www-form-urlencoded',
 		...header
 	}
 	return new Promise((resolve, reject) => {
@@ -39,7 +38,7 @@ export default function request({ method, url, data, header }){
 			headers: headers,
 			method,
 			url: baseUrl + url,
-			data: method === 'POST' || method === 'PUT' ? data : null,
+			data: method === 'POST' || method === 'PUT' ? qs.stringify(data) : null,
 			params: method === 'GET' || method === 'DELETE' || method === 'PATCH' ? data : null,
 			withCredentials: false
 		})

@@ -2,15 +2,23 @@ import React from 'react';
 import { FormattedMessage, formatMessage } from "umi-plugin-react/locale";
 import styles from './index.less'
 import router from 'umi/router';
+import Header from '@/components/header'
 const Home: React.FC = (props) => {
-  const goToCenter = () => {
+  const goToPath = (type: string) => {
+    let routerPath = {
+      home: '/',
+      game: '/game',
+      video: '/video',
+      tribune: '/tribune',
+      center: '/member/login'
+    }
     router.push({
-      pathname: '/member/login'
+      pathname: routerPath[type]
     })
   }
   return (
-    <div className={styles["otherInfo"]}>
-      <div onClick={goToCenter}>前往个人中心</div>
+    <div className={styles["content"]}>
+      <Header goToPath={(type) => {goToPath(type)}}/>
     </div>
   )
 }
