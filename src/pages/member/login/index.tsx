@@ -24,8 +24,7 @@ const Login : React.FC<HomeProps> = (props: HomeProps) => {
         }
         let params = {
           username: values.username,
-          password: values.password,
-          action: 'login'
+          password: values.password
         }
         setIsLoaning(true)
         loginIn(params).then((data: any) => {

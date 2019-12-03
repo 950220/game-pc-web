@@ -30,7 +30,8 @@ const codeMessage = {
  */
 export default function request({ method, url, data, header }){
 	const headers = {
-		'Content-Type': 'application/x-www-form-urlencoded',
+    Accept: 'application/json',
+		'Content-Type': 'application/json',
 		...header
 	}
 	return new Promise((resolve, reject) => {
@@ -38,11 +39,12 @@ export default function request({ method, url, data, header }){
 			headers: headers,
 			method,
 			url: baseUrl + url,
-			data: method === 'POST' || method === 'PUT' ? qs.stringify(data) : null,
+			data: method === 'POST' || method === 'PUT' ? data : null,
 			params: method === 'GET' || method === 'DELETE' || method === 'PATCH' ? data : null,
 			withCredentials: false
 		})
 			.then((res) => {
+        console.log(res)
 				if (res.status === 200) {
 					resolve(res.data)
 				} else {
