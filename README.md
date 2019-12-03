@@ -1,7 +1,7 @@
 # game-pc-web
 
-### npm i & cnpm i
+npm i & cnpm i
 
-### npm start
+npm start
 
-### npm build
+npm build
