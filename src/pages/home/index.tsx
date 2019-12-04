@@ -5,6 +5,7 @@ import Image from '@/components/Image'
 import AnimeDetailLt from '@/components/animeDetailLt'
 import AnimeDetailRT from '@/components/animeDetailRt'
 import AnimeDetailCt from '@/components/AnimeDetailCt'
+import AnimeDetailVe from '@/components/AnimeDetailVe'
 const Home: React.FC = (props) => {
   return (
     <div className={styles["content"]}>
@@ -18,12 +19,6 @@ const Home: React.FC = (props) => {
           <AnimeDetailLt detail={{}} position="left"/>
           <AnimeDetailRT detail={{}} position="left"/>
         </div>
-      </div>
-      <div className={styles["content-item"]}>
-        <div className={styles["content-item-title"]}>
-          <div className={styles["item-title1"]}>青春之歌</div>
-          <div className={styles["item-title2"]}>For The Youth</div>
-        </div>
         <div className={styles["item-content"]}>
           <AnimeDetailRT detail={{}} position="right"/>
           <AnimeDetailLt detail={{}} position="right"/>
@@ -31,10 +26,17 @@ const Home: React.FC = (props) => {
       </div>
       <div className={styles["content-item"]}>
         <div className={styles["content-item-title"]}>
-          <div className={styles["item-title1"]}>青春之歌</div>
-          <div className={styles["item-title2"]}>For The Youth</div>
+          <div className={styles["item-title1"]}>流年恋曲</div>
+          <div className={styles["item-title2"]}>For Ohe Love</div>
         </div>
         <AnimeDetailCt detail={{}}/>
+      </div>
+      <div className={styles["content-item"]}>
+        <div className={styles["content-item-title"]}>
+          <div className={styles["item-title1"]}>澎湃热血</div>
+          <div className={styles["item-title2"]}>Still Worth Fighting For</div>
+        </div>
+        <AnimeDetailVe detail={{}}/>
       </div>
     </div>
   )

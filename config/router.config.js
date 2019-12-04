@@ -1,7 +1,7 @@
 export default [
   {
     path: "/member",
-    component: "../layouts/BasicLayout",
+    component: "../layouts/MemberLayout",
     routes: [
       { path: "/member/login", component: "./member/login/index", title: "login" }
     ]

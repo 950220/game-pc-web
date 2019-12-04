@@ -11,7 +11,7 @@ const AnimeDetailCt = (props: animeProps) => {
   }
   return (
     <div className={styles["content"]}>
-      <Image src="/home/home.png" className={styles["ct-image"]}/>
+      <video id="media" src="http://www.sundxs.com/test.mp4" controls width="1100px" heigt="580px"></video> 
       <div className={styles["content-item"]}>
         <div className={styles["item"]}>
           <div className={styles["item-title"]}>剧情简介</div>
