@@ -3,8 +3,8 @@ import styles from './index.less';
 import router from 'umi/router';
 import Image from '@/components/Image'
 import { getHomeInfo } from './service'
-import AnimeDetailLt from '@/components/animeDetailLt'
-import AnimeDetailRT from '@/components/animeDetailRt'
+import AnimeDetailLt from '@/components/AnimeDetailLt'
+import AnimeDetailRT from '@/components/AnimeDetailRt'
 import AnimeDetailCt from '@/components/AnimeDetailCt'
 import AnimeDetailVe from '@/components/AnimeDetailVe'
 const Home: React.FC = (props) => {
