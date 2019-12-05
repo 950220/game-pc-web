@@ -26,8 +26,8 @@ export default {
           webpackChunkName: true,
         },
         title: {
-          defaultTitle: 'iGola – find cheap flights, book airline tickets',
-          format: 'iGola – find cheap flights, book airline tickets'
+          defaultTitle: '',
+          format: ''
         },
         dll: false,
         pwa: false,
@@ -64,6 +64,7 @@ export default {
     edge: 13
   },
   outputPath: './dist',
+  publicPath: '/pc/',
   history: 'hash',
   hash: true,
   alias: {
