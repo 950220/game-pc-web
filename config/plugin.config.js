@@ -5,7 +5,7 @@ export default config => {
     config.devServer
       .proxy({
         '/api': {
-          target: 'http://localhost:3000',
+          target: 'http://39.108.232.210:3000',
           changeOrigin: true,
           pathRewrite: {
             '^/api' : ''
