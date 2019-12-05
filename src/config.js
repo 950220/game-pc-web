@@ -1,4 +1,4 @@
-let baseUrl = '/api'
+let baseUrl = '/bbq'
 let staticUrl = 'http://39.108.232.210:8080/static'
 
 export {

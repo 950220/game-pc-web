@@ -4,11 +4,11 @@ export default config => {
   if (process.env.NODE_ENV === 'development') {
     config.devServer
       .proxy({
-        '/api': {
+        '/bbq': {
           target: 'http://39.108.232.210:3000',
           changeOrigin: true,
           pathRewrite: {
-            '^/api' : ''
+            '^/bbq' : ''
           }
         }
       })
