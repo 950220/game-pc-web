@@ -6,6 +6,7 @@ interface animeProps {
   detail: any
 }
 const AnimeDetailCt = (props: animeProps) => {
+  const detail = props.detail
   const goToDetail = (id: string) => {
 
   }
@@ -15,7 +16,11 @@ const AnimeDetailCt = (props: animeProps) => {
       <div className={styles["content-item"]}>
         <div className={styles["item"]}>
           <div className={styles["item-title"]}>剧情简介</div>
-          <div className={styles["item-text"]}>房贷首付付付付付付付付付付付付付付付付房贷首付付付付付付付付付付付付付付付付付付付飞洒付付付付付付付付付付付付付</div>
+          <div className={styles["item-text"]}>{detail.synopsis}</div>
+        </div>
+        <div className={styles["item"]}>
+          <div className={styles["item-title"]}>剧评</div>
+          <div className={styles["item-text"]}>{detail.review}</div>
         </div>
         <div className={styles["content-bottom"]}>
           <a href="#" onClick={goToDetail('111')}><i>查看更多&nbsp;>></i></a>
