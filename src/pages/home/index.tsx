@@ -16,9 +16,13 @@ const Home: React.FC = (props) => {
   useEffect(() => {
     getHomeInfo().then((res: any) => {
       if (res.resultCode === 200) {
+        setYouth(res.data.youth)
+        setLove(res.data.love)
+        setAction(res.data.action)
       }
     })
     .catch((err: any) => {
+      console.log(err)
     })
   }, []);
   return (
