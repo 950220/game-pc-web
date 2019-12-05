@@ -26,8 +26,8 @@ export default {
           webpackChunkName: true,
         },
         title: {
-          defaultTitle: '',
-          format: ''
+          defaultTitle: 'Anime',
+          format: 'Anime'
         },
         dll: false,
         pwa: false,
